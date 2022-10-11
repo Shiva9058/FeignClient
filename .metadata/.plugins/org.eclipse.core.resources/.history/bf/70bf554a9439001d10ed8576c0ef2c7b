@@ -1,0 +1,28 @@
+package com.test.Persist;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+
+import com.test.Entity.Student;
+
+import javax.persistence.*;
+
+public class Persist {
+	public static void main(String...strings )
+	{
+	EntityManagerFactory entityManagerFactory=Persistence.createEntityManagerFactory("Student");
+	EntityManager entityManager=entityManagerFactory.createEntityManager();
+	entityManager.getTransaction().begin();
+	Student s1=new Student(101,"Shiva","fr");
+	Student s2=new Student(102,"Shubham","sr");
+	Student s3=new Student(103,"Shivam","vr");
+	Student s4=new Student(104,"Saurav","lx");
+	entityManager.persist(s1);
+	entityManager.persist(s2);
+	entityManager.persist(s3);
+	entityManager.persist(s4);
+	entityManager.getTransaction().commit();
+	entityManager.close();
+	entityManagerFactory.close();
+}
+}

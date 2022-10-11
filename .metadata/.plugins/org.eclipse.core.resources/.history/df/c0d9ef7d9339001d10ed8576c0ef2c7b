@@ -1,0 +1,13 @@
+package com.test.Persist;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.*;
+
+public class Persist {
+	EntityManagerFactory entityManagerFactory=Persistence.createEntityManagerFactory("Student");
+	EntityManager entityManager=entityManagerFactory.createEntityManager();
+	entityManager.getTransaction().begin();
+	
+
+}

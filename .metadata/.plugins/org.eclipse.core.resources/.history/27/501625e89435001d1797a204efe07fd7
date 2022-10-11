@@ -1,0 +1,49 @@
+package com.test;
+
+
+import java.util.List;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+
+import com.test.dao.Userrepository;
+
+@SpringBootApplication
+public class JpaProjectApplication {
+
+	public static void main(String[] args) {
+	ApplicationContext context=	SpringApplication.run(JpaProjectApplication.class, args);
+	Userrepository userrepository  =context.getBean(Userrepository.class);
+	/*Store s=new Store();
+	s.setname("saurabh");
+	s.setAddress("hr");
+	Store s1=new Store();
+	s1.setname("amit");
+	s1.setAddress("od");
+	Store s4=new Store();
+	s4.setname("shubham");
+	s4.setAddress("sr");
+	ArrayList<Store> al=new ArrayList<>();
+	al.add(s);
+	al.add(s1);
+	al.add(s4);
+	//Iterator<Store> iterator = al.iterator();
+	userrepository.saveAll(al);
+	
+	
+Optional<Store> optional=	userrepository.findById(7);
+Store s= optional.get();
+s.setAddress("mp");
+s.setname("Shivam");
+userrepository.save(s);
+
+System.out.println(s);
+*/
+	//userrepository.deleteById(7);
+	//Store s= new Store();
+	List<String> i=userrepository.deleteData();
+	//System.out.println(i);
+   i.forEach(i1->System.out.println(i1));
+	}
+}

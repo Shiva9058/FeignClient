@@ -1,0 +1,2 @@
+logging.level.com.test.controller=DEBUG
+logging.level.com.test.controller=TRACE

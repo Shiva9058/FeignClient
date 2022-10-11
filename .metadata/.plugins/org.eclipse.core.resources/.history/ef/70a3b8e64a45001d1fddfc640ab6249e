@@ -1,0 +1,3 @@
+logging.level.com.test.controller=DEBUG
+//logging.level.com.test.controller=TRACE
+logging.pattern.console=%d{yyyy-MM-dd HH:mm:ss} | %-5level | %logger{1.} | %msg%n

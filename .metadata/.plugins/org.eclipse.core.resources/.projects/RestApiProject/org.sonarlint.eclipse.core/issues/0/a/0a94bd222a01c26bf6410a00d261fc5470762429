@@ -1,0 +1,7 @@
+
+‘
+java:S1104"YMake messageString a static final constant or non-public and provide accessors if needed.(ÆÌÝâúÿÿÿÿ8–§Ëë·0H¨ RMINORZ
+CODE_SMELL
+^
+java:S1165"&Make this "messageString" field final.(ÆÌÝâúÿÿÿÿ8–§Ëë·0H© RMINORZ
+CODE_SMELL

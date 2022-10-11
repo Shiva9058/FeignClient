@@ -1,0 +1,36 @@
+package com.test;
+
+import static org.mockito.Mockito.mockitoSession;
+
+import java.util.Arrays;
+
+import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.junit.MockitoJUnitRunner;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import com.test.dao.UserRepo;
+import com.test.entity.User;
+import com.test.service.UserService;
+
+@SpringBootTest
+@AutoConfigureMockMvc
+@RunWith(MockitoJUnitRunner.class)
+public class MyServiceTest {
+	@Mock
+	UserRepo userRepo;
+	@InjectMocks
+	UserService userService;
+@Test
+void TestResult()throws Exception
+{
+	User user1 = new User(15, "siwan", "Amit", "84801");
+	User user2 = new User(16, "siwan", "asadd", "84801");
+	Mockito.when(userRepo.findAll()).thenReturn(Arrays.asList(user1,user2));
+}
+
+}

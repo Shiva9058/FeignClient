@@ -1,0 +1,49 @@
+package com.test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.Before;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import org.mockito.junit.jupiter.MockitoExtension;
+
+import com.test.controller.MyController;
+import com.test.entity.User;
+import com.test.service.UserService;
+
+@ExtendWith(MockitoExtension.class)
+public class GlobalExceptionHandlerApplicationTests {
+	@InjectMocks
+	private MyController controller;
+
+	@Mock
+	private UserService service;
+
+	User user1 = new User(10, "Shiv", "fr", "245304");
+	User user2 = new User(12, "Ami", "Bihar", "201203");
+	User user3 = new User(13, "Aru", "hyderabad", "201204");
+
+	@Before
+	public void initMocks() {
+		MockitoAnnotations.initMocks(this);
+	}
+
+	@Test
+	public void getAllUsers() {
+		List<User> list = new ArrayList<User>();
+		list.add(new User(1, "amit", "siwan", "8431226"));
+
+		List<User> users = service.getAllUsers();
+		// Mockito.when(controller.getAllUsers()).thenReturn(users);
+		// ArrayList<User> list2=(ArrayList<User>) myController.getAllUsers();
+		assertEquals(controller.getAllUsers(), users);
+		// verify(userService,times(1)).getAllUsers();
+	}
+
+}

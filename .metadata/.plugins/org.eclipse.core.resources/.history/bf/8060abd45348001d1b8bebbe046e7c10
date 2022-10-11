@@ -1,0 +1,46 @@
+package com.test;
+
+import java.util.Arrays;
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.junit.MockitoJUnitRunner;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import com.test.controller.MyController;
+import com.test.entity.User;
+import com.test.service.UserService;
+@RunWith(MockitoJUnitRunner.class)
+@SpringBootTest
+@AutoConfigured
+public class MyControllerTest {
+
+	@Autowired
+	UserService userService=new UserService();
+	@Mock
+	private UserService service;
+	
+	@InjectMocks
+	private MyController controller;
+    @Test
+	void getResult()throws Exception
+	{
+	User user1 = new User(10, "Shiv", "fr", "245304");
+	User user2 = new User(12, "Ami", "Bihar", "201203");
+	//User user3 = new User(13, "Aru", "hyderabad", "201204");
+	List<User> list=Arrays.asList(user1,user2);
+	userService.setAllUsers2(list);
+	Mockito.when(userService.getAllUsers()).thenReturn(list);
+	
+	//List<Movie> actualMovieList = movieController.getAllMovies();
+
+    //Then
+    //assertThat(actualMovieList).containsExactly(movie1, movie2);
+    
+	}
+   }
